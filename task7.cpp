@@ -1,32 +1,36 @@
 #include <iostream>
+#include <string>
 #include <cstdlib>
+
 using namespace std;
 
-int ageWordCode(int age) {
+string ageWord(int age)
+{
     age = abs(age);
 
     int lastTwoDigits = age % 100;
     int lastDigit = age % 10;
 
     if (lastTwoDigits >= 11 && lastTwoDigits <= 14)
-        return 3;
+        return "років";
 
     if (lastDigit == 1)
-        return 1;
+        return "рік";
 
     if (lastDigit >= 2 && lastDigit <= 4)
-        return 2;
+        return "роки";
 
-    return 3;
+    return "років";
 }
 
-int main() {
+int main()
+{
     int age;
 
-    cout << "Enter age: ";
+    cout << "Введіть вік: ";
     cin >> age;
 
-    cout << "Result = " << ageWordCode(age) << endl;
+    cout << age << " " << ageWord(age) << endl;
 
     return 0;
 }
